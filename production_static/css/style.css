@@ -1,0 +1,185 @@
+{% load static %}
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,700&subset=cyrillic,cyrillic-ext');
+@font-face{
+	font-family: Dewberry;
+	src: url('style/font/dewberry_bold.ttf'), url('style/font/dewberry_italic.ttf'), url('style/font/dewberry_italic_bold.ttf'), url('style/font/dewberry_regular.ttf');
+}
+@font-face {
+	font-family: 'RupsterScriptFree';
+	src: url('style/font/RupsterScriptFree.eot?#iefix') format('embedded-opentype'),  url('style/font/RupsterScriptFree.woff') format('woff'), url('style/font/RupsterScriptFree.ttf')  format('truetype'), url('style/font/RupsterScriptFree.svg#RupsterScriptFree') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+body{
+	font-family: 'Noto Serif', serif;
+	color: #82878c;
+}
+ul{
+	list-style: none;
+}
+video{
+	width: 100%;
+}
+address{
+	color: #fff6aa;
+}
+.thumbnail{
+	border: 6px solid #060606;
+}
+a:focus, a:hover{
+	text-decoration: none;
+}
+button.thumbnail.active, button.thumbnail:focus, button.thumbnail:hover, a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover{
+	border-color: #fff6aa;
+}
+.foot-img{
+	position: absolute;
+	opacity: .6;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+.container-fluid{
+	padding: 0;
+}
+.row{
+	margin: 0;
+}
+.carousel-indicators{
+	position: relative;
+	top: 10px;
+	left: 40%;
+	width: 80%;
+}
+.carousel-indicators li{
+	text-indent: inherit;
+	border: none;
+	border-radius: 0;
+	width: 100%;
+	height: 20px;
+	margin: 0;
+	color: #fff;
+	text-transform: uppercase;
+	background-color: transparent;
+	font-family: Dewberry;
+	font-size: 18px;
+}
+.carousel-indicators .active{
+	color: #fff6aa;
+	background-color: transparent;
+	width: 100%;
+	height: 20px;
+}
+.carousel-control{
+	top: 50%;
+	width: 5%;
+	background-image: none!important;
+	background: transparent;
+}
+.modal ol{
+	display: none;
+}
+button.close{
+	margin-right: 1%;
+	color: #fff6aa;
+	text-shadow: 0 1px 0 #060606;
+	opacity: .6;
+	font-size: 66px;
+}
+.close:focus, .close:hover{
+	color: #fff6aa;
+	opacity: 1;
+}
+.carousel-caption{
+	background: rgba(6, 6, 6, .6);
+}
+.carousel-inner{
+	width: 88%;
+	left: 6%;
+	right: 6%;
+	margin-top: 6%;
+}
+h3, h4{
+	font-family: Dewberry;
+}
+h3, h4, .glyphicon{
+	text-align: center;
+	color: #fff6aa;
+}
+.head{
+	background-image: url(style/media/bg.png);
+	padding: 2.34375%;
+}
+.foot{
+	padding: 0;
+	background-color: #060606;
+}
+.border-bottom{
+	display: none;	
+}
+.col-xs-12.col-sm-6.col-md-3 {
+	margin-bottom: 6%;
+	color: #82878c;
+	text-align: center;
+}
+.glyphicon-allkz:before{
+	content: url(style/media/all_kz.png);
+}
+.glyphicon-person:before{
+	content: url(style/media/person.png);
+}
+.glyphicon-dreamteam:before{
+	content: url(style/media/dream_team.png);
+}
+.glyphicon-uniconc:before{
+	content: url(style/media/uniconc.png);
+}
+.glyphicon-highlevel:before{
+	content: url(style/media/high_level.png);
+}
+.glyphicon-fullwedd:before{
+	content: url(style/media/full_wedd.png);
+}
+.glyphicon-selfstudy:before{
+	content: url(style/media/self_study.png);
+}
+.glyphicon-11years:before{
+	content: url(style/media/11_years.png);
+}
+.glyphicon-aidar:before{
+	content: url(style/media/aidar.png);
+}
+.glyphicon-aleksandr:before{
+	content: url(style/media/aleksandr.png);
+}
+.glyphicon-aliya:before{
+	content: url(style/media/aliya.png);
+}
+.glyphicon-almas:before{
+	content: url(style/media/almas.png);
+}
+.glyphicon-asan:before{
+	content: url(style/media/asan.png);
+}
+.glyphicon-dana:before{
+	content: url(style/media/dana.png);
+}
+.glyphicon-nikita:before{
+	content: url(style/media/nikita.png);
+}
+.glyphicon-usen:before{
+	content: url(style/media/usen.png);
+}
+.more{
+	background-color: #fff6aa;
+	padding: 13px;
+	color: #060606;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+.more:hover{
+	opacity: .6;
+}

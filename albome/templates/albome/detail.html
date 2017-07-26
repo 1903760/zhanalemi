@@ -1,0 +1,98 @@
+{% extends "index.html" %}
+{% load thumbnail %}
+{% load static %}
+{% block application %}
+<div class="row">
+	<div class="col-xs-12 head">
+		<video autoplay="autoplay" loop="loop" poster="{% static 'media/logo.png' %}" preload="auto">
+		<source src="{% static 'media/logo.mp4' %}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+		</video>
+	</div>
+</div>
+<div class="row">
+<div class="col-xs-12 foot" style="height: 100vh">
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="0">
+{#				<div id="carousel-generic" class="carousel slide" data-ride="carousel" data-interval="0">#}
+  <div class="container-fluid foot">
+    <div id="carousel-generic" class="carousel slide" data-ride="carousel" data-interval="0">
+     <!-- Индикаторы -->
+     <ol class="carousel-indicators">
+        {% regroup photos by album.date|date:'Y' as year_list  %}
+          {% for album_year in year_list %}
+            {% if forloop.first %}
+        <li data-target="#carousel-generic" data-slide-to="{{ forloop.counter0 }}" class="active">{{ album_year.grouper }}</li>
+             {% else %}
+        <li data-target="#carousel-generic" data-slide-to="{{ forloop.counter0 }}">{{ album_year.grouper }}</li>
+              {% endif %}
+          {% endfor %}
+     </ol>
+  <img class="border-bottom" src="{% static 'media/border-bottom.png' %}" alt="">
+     <!-- Оболочка для слайдов -->
+  <div class="carousel-inner" role="listbox">
+{#        {% regroup photos by album as year_list  %}#}
+{% for album_year in year_list %}
+  {% if forloop.first %}
+    <div class="item active" name="{{ album_year.grouper }}" style="height: 100vh">
+  {% else %}
+    <div class="item" name="{{ album_year.grouper }}" style="height: 100vh">
+  {% endif %}
+    {% regroup album_year.list by album as albums %}
+      {% for photos in albums %}
+<!-- Button trigger modal -->
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <button type="button" lass="thumbnail" data-toggle="modal" data-target="#myModal-{{ photos.grouper.id }}">
+          <img class="img-responsive" src="{{ photos.grouper.image.avatar.url }}">
+        </button>
+        <h3>{{ photos.grouper.title }}</h3>
+        <p>{{ photos.grouper.date|date:"d E" }}</p>
+      </div>
+<!-- Modal -->
+      <div class="modal fade" id="myModal-{{ photos.grouper.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title" id="myModalLabel">{{ photos.grouper.title }}</h4>
+              <div class="text-center">
+                {{ photos.grouper.title }}
+                {{ photos.grouper.date|date:"d E" }}
+              </div>
+            </div>
+            <div class="modal-body col-xs-12" style="column-count: 4; // сколько колонок нужно?
+    column-gap: 1em; // промежуток между блоками (справа или слева)
+
+    /* тоже самое с нужными префиксами на 18 марта 2016 */
+    -webkit-column-count: 4; -moz-column-count: 4; column-count: 4;
+    -webkit-column-gap: 1em; -moz-column-gap: 1em; column-gap: 1em;
+}">
+                {% for photo in photos.list %}
+              <a href="{{ photo.image.url }}" data-lightbox="roadtrip" style="display: inline-block; // важно!
+    width: 100%;           // важно!
+    margin-bottom: 1em;
+    background-color: #eee;
+}">
+                <img class="img-responsive" data-lightbox="roadtrip" src="{{ photo.image.url }}">
+              </a>
+                  {% endfor %}
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+{% endfor %}
+  </div>
+</div>
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
+{% endblock %}

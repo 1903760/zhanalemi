@@ -1,0 +1,40 @@
+@media (min-width: 768px) {
+	.carousel-indicators{
+		top: 20px;
+	}
+	.border-bottom{
+		display: block;
+		top: 52px;
+		position: absolute;
+		z-index: 9;
+		height: 6px;
+		width: 100%;
+	}
+	.carousel-indicators li{
+		text-indent: inherit;
+		border: none;
+		border-radius: 0;
+		width: 13.66666666666667%;
+		height: 20px;
+		margin: 0;
+		color: #fff;
+		text-transform: uppercase;
+		background-color: transparent;
+		font-size: 18px;
+	}
+	.carousel-indicators .active{
+		color: #fff6aa;
+		background-color: transparent;
+		width: 13.66666666666667%;
+		height: 20px;
+	}
+	.carousel-control{
+		top: 15%;
+	}
+}
+
+@media (max-width: 767px) { 
+	.carousel-indicators{
+		border-bottom: 6px solid #fff6aa;
+	}
+}
